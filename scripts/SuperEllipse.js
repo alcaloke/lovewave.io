@@ -1,10 +1,12 @@
 class SuperEllipse {
-  constructor(a, b, n) {
+  constructor(p, a, b, n) {
     this.a = a;
     this.b = b;
     this.n = n;
 
     this.dn = 0.005;
+
+    this.p = p;
   }
 
   fluctuate() {
@@ -15,14 +17,15 @@ class SuperEllipse {
   }
 
   drawShape() {
-    beginShape();
-    for (let angle = 0; angle < TWO_PI; angle += 0.1) {
+    let p = this.p;
+    p.beginShape();
+    for (let angle = 0; angle < p.TWO_PI; angle += 0.1) {
       let na = 2 / this.n;
-      let x = pow(abs(cos(angle)), na) * this.a * this.sgn(cos(angle));
-      let y = pow(abs(sin(angle)), na) * this.b * this.sgn(sin(angle));
-      vertex(x, y);
+      let x = p.pow(p.abs(p.cos(angle)), na) * this.a * this.sgn(p.cos(angle));
+      let y = p.pow(p.abs(p.sin(angle)), na) * this.b * this.sgn(p.sin(angle));
+      p.vertex(x, y);
     }
-    endShape(CLOSE);
+    p.endShape(p.CLOSE);
   }
 
   sgn(x) {

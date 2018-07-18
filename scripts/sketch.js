@@ -1,159 +1,211 @@
-let l, o, w, a;
-let vLeft, vRight;
-let eBig, eSmall, eMid;
+new p5(function(p) {
 
-function setup() {
-  let canvas = createCanvas(960, 192);
-  canvas.parent('logo');
-  l = new SuperShape(1, 80, 80, 0.4, 9.5, 0.3); // m, xr, xl, n1, n2, n3
-  o = new SuperEllipse(60, 60, 2); // xr, xl, n
-  vLeft = new SuperEllipse(60, 40, 2);
-  vRight = new SuperEllipse(60, 40, 2);
-  eBig = new SuperShape(2, 55, 55, 11.5, 20, 3.4);
-  eSmall = new SuperEllipse(45, 45 * 2.5 / 3, 2);
-  eMid = new SuperEllipse(45, 45 / 3, 2)
-  w = new SuperShape(3, 80, 80, 0.7, 2.3, 0.5);
-  a = new SuperShape(1, 60, 60, 2.7, 0.2, 2.2);
-}
+    let l, o, w, a;
+    let vLeft, vRight;
+    let eBig, eSmall, eMid;
 
-function draw() {
-  background(color('white'));
+    p.setup = function() {
+      p.createCanvas(960, 192);
 
-  // // Guide
-  stroke(0);
-  strokeWeight(0.2);
-  // line(0, height/2, width, height/2);
-  //
-  // let d = width / 9;
-  // for (let i=0; i < 9; i++) {
-  // 	line(i*d, 0, i*d, height);
-  // }
+      l = new SuperShape(p, 1, 80, 80, 0.4, 9.5, 0.3); // m, xr, xl, n1, n2, n3
+      o = new SuperEllipse(p, 60, 60, 2); // xr, xl, n
+      vLeft = new SuperEllipse(p, 60, 40, 2);
+      vRight = new SuperEllipse(p, 60, 40, 2);
+      eBig = new SuperShape(p, 2, 55, 55, 11.5, 20, 3.4);
+      eSmall = new SuperEllipse(p, 45, 45 * 2.5 / 3, 2);
+      eMid = new SuperEllipse(p, 45, 45 / 3, 2)
+      w = new SuperShape(p, 3, 80, 80, 0.7, 2.3, 0.5);
+      a = new SuperShape(p, 1, 60, 60, 2.7, 0.2, 2.2);
+    }
 
-  // "O"
-  push();
+    p.draw = function() {
+      p.background(p.color('white'));
 
-  fill(color('#b6e1fc'));
-  translate(width * 2 / 9, height / 2);
-  o.drawShape();
-  // o.fluctuate();
-  pop();
+      // // Guide
+      p.stroke(0);
+      p.strokeWeight(0.2);
+      // line(0, height/2, width, height/2);
+      //
+      // let d = width / 9;
+      // for (let i=0; i < 9; i++) {
+      // 	line(i*d, 0, i*d, height);
+      // }
 
-  // vLeft 1
-  push();
-  noStroke();
-  fill(color('hotpink'));
-  translate(width * 2.85 / 9, height / 2);
-  rotate(PI * 55 / 180);
-  vLeft.drawShape();
-  vLeft.fluctuate();
-  pop();
-  // vRight 1
-  push();
-  noStroke();
-  fill(color('hotpink'));
-  translate(width * 3.15 / 9, height / 2);
-  rotate(-PI * 55 / 180);
-  vRight.drawShape();
-  vRight.fluctuate();
-  pop();
+      // "O"
+      p.push();
 
-  //eBig 2
-  push();
+      p.fill(p.color('#b6e1fc'));
+      p.translate(p.width * 2 / 9, p.height / 2);
+      o.drawShape();
+      // o.fluctuate();
+      p.pop();
 
-  fill(color('hotpink'));
-  translate(width * 8 / 9, height / 2);
-  eBig.drawShape();
-  // eBig.fluctuate();
-  pop();
-  //eSmall 2
-  push();
-  fill(color('plum'));
-  noStroke();
-  translate(width * 8.1 / 9, height / 2);
-  eSmall.drawShape();
-  // eSmall.fluctuate();
-  pop();
-  //eMid 2
-  push();
-  fill(color('hotpink'));
-  noStroke();
-  translate(width * 8.15 / 9, height / 2);
-  eMid.drawShape();
-  pop();
+      // vLeft 1
+      p.push();
+      p.noStroke();
+      p.fill(p.color('hotpink'));
+      p.translate(p.width * 2.85 / 9, p.height / 2);
+      p.rotate(p.PI * 55 / 180);
+      vLeft.drawShape();
+      vLeft.fluctuate();
+      p.pop();
+      // vRight 1
+      p.push();
+      p.noStroke();
+      p.fill(p.color('hotpink'));
+      p.translate(p.width * 3.15 / 9, p.height / 2);
+      p.rotate(-p.PI * 55 / 180);
+      vRight.drawShape();
+      vRight.fluctuate();
+      p.pop();
 
-  // vLeft 2
-  push();
-  noStroke();
-  fill(color('#b6e1fc'));
-  translate(width * 6.85 / 9, height / 2);
-  rotate(PI * 55 / 180);
-  vLeft.drawShape();
-  vLeft.fluctuate();
-  pop();
-  // vRight 2
-  push();
-  noStroke();
-  fill(color('#b6e1fc'));
-  translate(width * 7.15 / 9, height / 2);
-  rotate(-PI * 55 / 180);
-  vRight.drawShape();
-  vRight.fluctuate();
-  pop();
+      //eBig 2
+      p.push();
 
-  //eBig 1
-  push();
-  fill(color('orange'));
-  translate(width * 4 / 9, height / 2);
-  eBig.drawShape();
-  // eBig.fluctuate();
-  pop();
-  //eSmall 1
-  push();
-  fill(color('gold'));
-  noStroke();
-  translate(width * 4.1 / 9, height / 2);
-  eSmall.drawShape();
-  // eSmall.fluctuate();
-  pop();
-  //eMid 1
-  push();
-  fill(color('orange'));
-  noStroke();
-  translate(width * 4.15 / 9, height / 2);
-  eMid.drawShape();
-  pop();
+      p.fill(p.color('hotpink'));
+      p.translate(p.width * 8 / 9, p.height / 2);
+      eBig.drawShape();
+      // eBig.fluctuate();
+      p.pop();
+      //eSmall 2
+      p.push();
+      p.fill(p.color('plum'));
+      p.noStroke();
+      p.translate(p.width * 8.1 / 9, p.height / 2);
+      eSmall.drawShape();
+      // eSmall.fluctuate();
+      p.pop();
+      //eMid 2
+      p.push();
+      p.fill(p.color('hotpink'));
+      p.noStroke();
+      p.translate(p.width * 8.15 / 9, p.height / 2);
+      eMid.drawShape();
+      p.pop();
 
-  // "a"
-  push();
+      // vLeft 2
+      p.push();
+      p.noStroke();
+      p.fill(p.color('#b6e1fc'));
+      p.translate(p.width * 6.85 / 9, p.height / 2);
+      p.rotate(p.PI * 55 / 180);
+      vLeft.drawShape();
+      vLeft.fluctuate();
+      p.pop();
+      // vRight 2
+      p.push();
+      p.noStroke();
+      p.fill(p.color('#b6e1fc'));
+      p.translate(p.width * 7.15 / 9, p.height / 2);
+      p.rotate(-p.PI * 55 / 180);
+      vRight.drawShape();
+      vRight.fluctuate();
+      p.pop();
 
-  fill(color('plum'));
-  translate(width * 6 / 9, height / 2);
-  // rotate(-PI * 150 / 180);
-  a.drawShape();
-  // a.fluctuate();
-  fill(255);
-  // ellipse(4, 4, 40);
-  pop();
+      //eBig 1
+      p.push();
+      p.fill(p.color('orange'));
+      p.translate(p.width * 4 / 9, p.height / 2);
+      eBig.drawShape();
+      // eBig.fluctuate();
+      p.pop();
+      //eSmall 1
+      p.push();
+      p.fill(p.color('gold'));
+      p.noStroke();
+      p.translate(p.width * 4.1 / 9, p.height / 2);
+      eSmall.drawShape();
+      // eSmall.fluctuate();
+      p.pop();
+      //eMid 1
+      p.push();
+      p.fill(p.color('orange'));
+      p.noStroke();
+      p.translate(p.width * 4.15 / 9, p.height / 2);
+      eMid.drawShape();
+      p.pop();
 
-  // "W"
-  push();
+      // "a"
+      p.push();
 
-  fill(color('#990099'));
-  translate(width * 5 / 9, height / 2);
-  rotate(-PI * 150 / 180);
-  w.drawShape();
-  w.fluctuate();
-  pop();
+      p.fill(p.color('plum'));
+      p.translate(p.width * 6 / 9, p.height / 2);
+      // rotate(-PI * 150 / 180);
+      a.drawShape();
+      // a.fluctuate();
+      p.fill(255);
+      // ellipse(4, 4, 40);
+      p.pop();
 
-  // "L"
-  push();
+      // "W"
+      p.push();
 
-  fill(color('plum'));
-  translate(width / 9, height / 2);
-  rotate(-PI / 2);
-  l.drawShape();
-  l.fluctuate();
-  pop();
+      p.fill(p.color('#990099'));
+      p.translate(p.width * 5 / 9, p.height / 2);
+      p.rotate(-p.PI * 150 / 180);
+      w.drawShape();
+      w.fluctuate();
+      p.pop();
+
+      // "L"
+      p.push();
+
+      p.fill(p.color('plum'));
+      p.translate(p.width / 9, p.height / 2);
+      p.rotate(-p.PI / 2);
+      l.drawShape();
+      l.fluctuate();
+      p.pop();
 
 
-}
+    }
+  },
+  'logo');
+
+new p5(function(p) {
+    let wave;
+    let sample1;
+    let sample2;
+    let filter;
+    let h;
+
+    let x = 1;
+
+    p.preload = function() {
+      // sample1 = p.loadSound('../D47 - 119.wav');
+      sample2 = p.loadSound('../assets/audio/C04 - 87.wav');
+    }
+
+    p.setup = function() {
+      p.createCanvas(x * 300, x * 300);
+
+      wave = new SuperShape(p, 3, x * 150, x * 150, 0.7, 2.3, 0.5); //
+      p.colorMode(p.HSB, 1000);
+
+      sample2.loop();
+      sample2.disconnect(filter);
+      filter = new p5.LowPass;
+      sample2.connect(filter);
+    }
+
+    p.draw = function() {
+      p.background(p.color('white'));
+      p.strokeWeight(0.2)
+      h = p.map(wave.n1, 0.4, 1.5, 650, 900);
+      // p.print(h);
+      p.fill(h, 1000, 1000);
+
+      p.push();
+      p.translate(p.width / 2, p.height / 2);
+      p.rotate(-p.PI * 150 / 180);
+      wave.drawShape();
+      wave.fluctuate();
+      p.pop();
+
+      // let res = p.map(p.mouseY, p.height, 0, 5, 15);
+      let freQ = p.map(wave.n1, 0.4, 1.5, 10, 11025 / 2);
+      filter.set(freQ, 7);
+    }
+
+  },
+  'aboutSketch');

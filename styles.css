@@ -79,6 +79,7 @@ header {
 
 .aboutSection > div {
   /* flex: 2; */
+  align-self: flex-start;
 
   margin: 3px;
   padding: 20px;
@@ -93,8 +94,8 @@ header {
 
 #canvasPlaceHolder {
   background-color: hotpink;
-  width: 500px;
-  height: 500px;
+  width: 300px;
+  height: 300px;
   border: 1px solid hotpink;
   border-radius: 7px;
 }

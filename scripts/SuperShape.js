@@ -1,5 +1,5 @@
 class SuperShape {
-  constructor(m, xr, yr, n1, n2, n3) {
+  constructor(p, m, xr, yr, n1, n2, n3) {
     this.m = m;
     this.xradius = xr;
     this.yradius = yr;
@@ -11,18 +11,21 @@ class SuperShape {
     this.b = 1;
 
     this.dn1 = 0.005;
+
+    this.p = p;
   }
 
   setShape(theta) {
-    let part1 = (1 / this.a) * cos(theta * this.m / 4);
-    part1 = abs(part1);
-    part1 = pow(part1, this.n2);
+    let p = this.p;
+    let part1 = (1 / this.a) * p.cos(theta * this.m / 4);
+    part1 = p.abs(part1);
+    part1 = p.pow(part1, this.n2);
 
-    let part2 = (1 / this.b) * sin(theta * this.m / 4);
-    part2 = abs(part2);
-    part2 = pow(part2, this.n3);
+    let part2 = (1 / this.b) * p.sin(theta * this.m / 4);
+    part2 = p.abs(part2);
+    part2 = p.pow(part2, this.n3);
 
-    let part3 = pow(part1 + part2, 1 / this.n1);
+    let part3 = p.pow(part1 + part2, 1 / this.n1);
 
     if (part3 === 0) {
       return 0;
@@ -32,18 +35,19 @@ class SuperShape {
   }
 
   drawShape() {
+    let p = this.p;
     let divisor = 1000;
-    let increment = TWO_PI / divisor;
+    let increment = p.TWO_PI / divisor;
 
-    beginShape()
-    for (let angle = 0; angle < TWO_PI; angle += increment) {
+    p.beginShape()
+    for (let angle = 0; angle < p.TWO_PI; angle += increment) {
       let r = this.setShape(angle);
-      let x = this.xradius * r * cos(angle);
-      let y = this.yradius * r * sin(angle);
+      let x = this.xradius * r * p.cos(angle);
+      let y = this.yradius * r * p.sin(angle);
 
-      vertex(x, y);
+      p.vertex(x, y);
     }
-    endShape(CLOSE);
+    p.endShape(p.CLOSE);
   }
 
   fluctuate() {
@@ -52,4 +56,5 @@ class SuperShape {
       this.dn1 = this.dn1 * -1;
     }
   }
+
 }
