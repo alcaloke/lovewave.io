@@ -21,23 +21,13 @@ new p5(function(p) {
     p.draw = function() {
       p.background(p.color('white'));
 
-      // // Guide
       p.stroke(0);
       p.strokeWeight(0.2);
-      // line(0, height/2, width, height/2);
-      //
-      // let d = width / 9;
-      // for (let i=0; i < 9; i++) {
-      // 	line(i*d, 0, i*d, height);
-      // }
 
-      // "O"
       p.push();
-
       p.fill(p.color('#b6e1fc'));
       p.translate(p.width * 2 / 9, p.height / 2);
       o.drawShape();
-      // o.fluctuate();
       p.pop();
 
       // vLeft 1
@@ -61,11 +51,9 @@ new p5(function(p) {
 
       //eBig 2
       p.push();
-
       p.fill(p.color('hotpink'));
       p.translate(p.width * 8 / 9, p.height / 2);
       eBig.drawShape();
-      // eBig.fluctuate();
       p.pop();
       //eSmall 2
       p.push();
@@ -73,7 +61,6 @@ new p5(function(p) {
       p.noStroke();
       p.translate(p.width * 8.1 / 9, p.height / 2);
       eSmall.drawShape();
-      // eSmall.fluctuate();
       p.pop();
       //eMid 2
       p.push();
@@ -107,7 +94,6 @@ new p5(function(p) {
       p.fill(p.color('orange'));
       p.translate(p.width * 4 / 9, p.height / 2);
       eBig.drawShape();
-      // eBig.fluctuate();
       p.pop();
       //eSmall 1
       p.push();
@@ -115,7 +101,6 @@ new p5(function(p) {
       p.noStroke();
       p.translate(p.width * 4.1 / 9, p.height / 2);
       eSmall.drawShape();
-      // eSmall.fluctuate();
       p.pop();
       //eMid 1
       p.push();
@@ -127,14 +112,11 @@ new p5(function(p) {
 
       // "a"
       p.push();
-
       p.fill(p.color('plum'));
       p.translate(p.width * 6 / 9, p.height / 2);
       // rotate(-PI * 150 / 180);
       a.drawShape();
-      // a.fluctuate();
       p.fill(255);
-      // ellipse(4, 4, 40);
       p.pop();
 
       // "W"
@@ -149,15 +131,12 @@ new p5(function(p) {
 
       // "L"
       p.push();
-
       p.fill(p.color('plum'));
       p.translate(p.width / 9, p.height / 2);
       p.rotate(-p.PI / 2);
       l.drawShape();
       l.fluctuate();
       p.pop();
-
-
     }
   },
   'logo');

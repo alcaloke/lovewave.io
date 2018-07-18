@@ -32,10 +32,7 @@ header {
   border: 3px solid #efd6f5; /* lightplum */
 
   text-align: center;
-  /* font-family: 'Open Sans', sans-serif; */
-  /* font-family: 'Roboto Mono', monospace; */
   font-size: 14pt;
-  /* text-shadow: 4px 4px 4px indigo; */
 }
 
 .menu > div > a {
@@ -43,17 +40,17 @@ header {
   color: #0000cc; /* blue */
 }
 
-.aboutSection {
+.menu > div > a:hover {
+  color: hotpink;
+}
+
+#aboutSection {
   display: flex;
-  /* flex-wrap: wrap; */
   justify-content: space-around;
-  /* align-items: center; */
   margin: 0 5%;
 }
 
-.aboutSection > article {
-  /* flex: 3; */
-
+#aboutWords {
   margin: 3px;
   padding: 20px;
 
@@ -63,22 +60,20 @@ header {
   color: #0000cc; /* blue */
 }
 
-.aboutSection > article > p {
+#aboutWords > p {
   font-size: 14pt;
 }
 
-.aboutSection > article > h2 {
+#aboutWords > h2 {
   text-align: center;
 }
 
-.aboutSection > article > p > a {
+#aboutWords > p > a {
   text-decoration: none;
   color: hotpink;
-  /* font-style: oblique; */
 }
 
-.aboutSection > div {
-  /* flex: 2; */
+#aboutSketch {
   align-self: flex-start;
 
   margin: 3px;
@@ -88,14 +83,4 @@ header {
   border: 3px solid #efd6f5; /* lightplum */
   border-radius: 7px;
   color: #0000cc; /* blue */
-
-  /* text-align: center; */
-}
-
-#canvasPlaceHolder {
-  background-color: hotpink;
-  width: 300px;
-  height: 300px;
-  border: 1px solid hotpink;
-  border-radius: 7px;
 }
