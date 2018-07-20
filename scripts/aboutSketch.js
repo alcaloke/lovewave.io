@@ -1,3 +1,4 @@
+// Lovewave Logo
 new p5(function(p) {
 
     let l, o, w, a;
@@ -141,16 +142,28 @@ new p5(function(p) {
   },
   'logo');
 
+// About Sketch
 new p5(function(p) {
     let wave;
     let sample;
     let filter;
-    let h;
+    let h, h1, h2;
+
+    let n1_max = 0.4;
+    let n1_min = 1.5;
+    let n2_min = 1.3;
+    let n2_max = 3.3;
+
+    let bauhaus;
+    let mute = false;
+    let xr, yr;
+    let r = 10;
 
     let x = 1;
 
     p.preload = function() {
       sample = p.loadSound('../assets/audio/D47 - 119.wav');
+      bauhaus = p.loadFont('../assets/fonts/BauhausStd-Medium.otf')
       // sample  = p.loadSound('../assets/audio/C04 - 87.wav');
     }
 
@@ -169,7 +182,10 @@ new p5(function(p) {
     p.draw = function() {
       p.background(p.color('white'));
       p.strokeWeight(0.2)
-      h = p.map(wave.n1, 0.4, 1.5, 750, 900);
+      h1 = p.map(wave.n1, n1_min, n1_max, 21, 29);
+      h2 = p.map(wave.n2, n2_min, n2_max, 21, 29);
+      h = h1 * h2;
+      // s = p.map(wave.n2, 1.3, 3.3, 0, 1000);
       // p.print(h);
       p.fill(h, 1000, 1000);
 
@@ -177,13 +193,49 @@ new p5(function(p) {
       p.translate(p.width / 2, p.height / 2);
       p.rotate(-p.PI * 150 / 180);
       wave.drawShape();
-      wave.fluctuate();
+      // wave.fluctuate();
       p.pop();
 
-      // let res = p.map(p.mouseY, p.height, 0, 5, 15);
-      let freQ = p.map(wave.n1, 0.4, 1.5, 10, 11025 / 2);
-      filter.set(freQ, 7);
+      if (p.mouseX > 0 && p.mouseX < p.width && p.mouseY > 0 && p.mouseY < p.height && !mute) {
+        wave.n2 = p.map(p.mouseX, 0, p.width, n2_min, n2_max);
+        wave.n1 = p.map(p.mouseY, p.height, 0, n1_min, n1_max);
+      };
+
+      let freQ = p.map(wave.n2, n2_min, n2_max, 10, 22050 / 4);
+      let res = p.map(wave.n1, n1_min, n1_max, 0, 10);
+
+      filter.set(freQ, res);
+
+      // Mute function
+      p.textSize(18);
+      p.textFont(bauhaus);
+      p.textAlign(p.CENTER);
+
+      xr = p.width - r * 2;
+      yr = p.height - r * 2
+
+      if (mute) {
+        p.text("PLAY", xr, yr - 15);
+        p.fill(p.color('limegreen'));
+
+        p.ellipse(xr, yr, r * 2);
+        p.masterVolume(0);
+      } else if (!mute) {
+        p.text("STOP", xr, yr - 15);
+        p.fill(p.color('darkred'));
+
+        p.ellipse(xr, yr, r * 2);
+        p.masterVolume(1);
+      }
     }
+
+    p.mouseClicked = function() {
+      let dx = p.dist(xr, yr, p.mouseX, p.mouseY)
+      if (dx < r) {
+        mute = !mute;
+      }
+    }
+
 
   },
   'aboutSketch');
