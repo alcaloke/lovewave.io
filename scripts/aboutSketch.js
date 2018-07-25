@@ -233,7 +233,7 @@ new p5(function(p) {
       }
     }
 
-    p.touchStarted = function() {
+    p.touchEnded = function() {
       let dx = p.dist(xr, yr, p.mouseX, p.mouseY)
       if (dx < r) {
         mute = !mute;
