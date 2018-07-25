@@ -155,7 +155,7 @@ new p5(function(p) {
     let n2_max = 3.3;
 
     let bauhaus;
-    let mute = false;
+    let mute = true;
     let xr, yr;
     let r = 10;
 
@@ -173,7 +173,7 @@ new p5(function(p) {
       wave = new SuperShape(p, 3, x * 150, x * 150, 0.7, 2.3, 0.5); //
       p.colorMode(p.HSB, 1000);
 
-      sample.loop();
+      // sample.loop();
       sample.disconnect(filter);
       filter = new p5.LowPass;
       sample.connect(filter);
@@ -215,12 +215,16 @@ new p5(function(p) {
       yr = p.height - r * 2
 
       if (mute) {
+        sample.stop();
         p.text("PLAY", xr, yr - 15);
         p.fill(p.color('limegreen'));
 
         p.ellipse(xr, yr, r * 2);
         p.masterVolume(0);
       } else if (!mute) {
+        if(!sample.isPlaying()) {
+          sample.loop();
+        }
         p.text("STOP", xr, yr - 15);
         p.fill(p.color('darkred'));
 
@@ -229,7 +233,7 @@ new p5(function(p) {
       }
     }
 
-    p.mouseClicked = function() {
+    p.touchStarted = function() {
       let dx = p.dist(xr, yr, p.mouseX, p.mouseY)
       if (dx < r) {
         mute = !mute;
