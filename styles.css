@@ -83,3 +83,34 @@ header {
   border-radius: 7px;
   color: #0000cc; /* blue */
 }
+
+#tempP {
+  text-align: center;
+  margin: 0 5%;
+}
+
+#threeValues {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 0 5%;
+}
+
+#threeValues > article {
+  /* flex: 1; */
+
+  margin: 3px;
+  padding: 20px;
+
+  border: 3px solid #efd6f5; /* lightplum */
+  border-radius: 7px;
+  color: #0000cc; /* blue */
+}
+
+#threeValues > article > h2 {
+  text-align: center;
+}
+
+#threeValues > article > p {
+  font-size: 12pt;
+}
