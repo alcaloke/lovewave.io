@@ -15,6 +15,15 @@ header {
   margin: 10px auto;
 }
 
+p {
+  font-size: 14pt;
+}
+
+a {
+  text-decoration: none;
+  color: hotpink;
+}
+
 .menu {
   display: flex;
   margin: 10px 5%;
@@ -59,18 +68,18 @@ header {
   color: #0000cc; /* blue */
 }
 
-#aboutWords > p {
+/* #aboutWords > p {
   font-size: 14pt;
-}
+} */
 
 #aboutWords > h2 {
   text-align: center;
 }
 
-#aboutWords > p > a {
+/* #aboutWords > p > a {
   text-decoration: none;
   color: hotpink;
-}
+} */
 
 #aboutSketch {
   align-self: flex-start;
@@ -91,13 +100,13 @@ header {
 
 #threeValues {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 
   margin: 0 5%;
 }
 
 #threeValues > article {
-  /* flex: 1; */
+  flex: 1;
 
   margin: 3px;
   padding: 20px;
@@ -111,6 +120,6 @@ header {
   text-align: center;
 }
 
-#threeValues > article > p {
+/* #threeValues > article > p {
   font-size: 12pt;
-}
+} */
