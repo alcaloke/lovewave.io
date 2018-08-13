@@ -52,13 +52,13 @@ a {
   font-size: 14pt;
 }
 
-#aboutSection {
+.doubleFlex {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 0 5%;
 }
 
-#aboutWords {
+.doubleFlexWords {
   margin: 3px;
   padding: 20px;
 
@@ -68,20 +68,12 @@ a {
   color: #0000cc; /* blue */
 }
 
-/* #aboutWords > p {
-  font-size: 14pt;
-} */
 
-#aboutWords > h2 {
+.doubleFlexWords > h2 {
   text-align: center;
 }
 
-/* #aboutWords > p > a {
-  text-decoration: none;
-  color: hotpink;
-} */
-
-#aboutSketch {
+.doubleFlex >  div {
   align-self: flex-start;
 
   margin: 3px;
@@ -97,29 +89,3 @@ a {
   text-align: center;
   margin: 0 5%;
 }
-
-#threeValues {
-  display: flex;
-  /* justify-content: space-between; */
-
-  margin: 0 5%;
-}
-
-#threeValues > article {
-  flex: 1;
-
-  margin: 3px;
-  padding: 20px;
-
-  border: 3px solid #efd6f5; /* lightplum */
-  border-radius: 7px;
-  color: #0000cc; /* blue */
-}
-
-#threeValues > article > h2 {
-  text-align: center;
-}
-
-/* #threeValues > article > p {
-  font-size: 12pt;
-} */
